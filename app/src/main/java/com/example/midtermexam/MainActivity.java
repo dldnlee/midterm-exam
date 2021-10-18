@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*새로운 게임 시작*/
     private void newGame() {
         binding.imageRock.setVisibility(View.VISIBLE);
         binding.imageScissor.setVisibility(View.VISIBLE);
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         binding.rpsText.setText("가위 바위 보!");
     }
 
+    /*게임 본격 시작*/
     private void gameStart() {
         binding.imageRock.setVisibility(View.INVISIBLE);
         binding.imageScissor.setVisibility(View.INVISIBLE);
@@ -63,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         binding.playAgain.setVisibility(View.VISIBLE);
         binding.playAgain.setEnabled(true);
         binding.userMove.setVisibility(View.VISIBLE);
-        binding.startText.setVisibility(View.VISIBLE);
         binding.aiText.setVisibility(View.VISIBLE);
         binding.userText.setVisibility(View.VISIBLE);
         binding.aiMove.setVisibility(View.VISIBLE);
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         binding.startText.setText(String.format("%d번중 %d번 이겼습니다. 승률은 %.2f%%입니다 ", this.count, this.win_count, this.percentage));
     }
 
+    /*게임 우승여부 함수*/
     private void playGame(int pick) {
         int ai = rand.nextInt(3);
         /* rock = 0, scissor = 1, paper = 2 */
@@ -102,12 +104,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void win() {
+        binding.startText.setVisibility(View.VISIBLE);
         this.count += 1;
         this.win_count += 1;
         binding.rpsText.setText("당신이 이겼습니다!!");
     }
 
     private void lose() {
+        binding.startText.setVisibility(View.VISIBLE);
         this.count += 1;
         binding.rpsText.setText("당신이 졌어요ㅠ");
     }
